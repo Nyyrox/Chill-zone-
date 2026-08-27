@@ -1,0 +1,43 @@
+.cta-band {
+  background: linear-gradient(135deg, var(--deep) 0%, var(--deep-2) 100%);
+  padding: 72px 0;
+}
+
+.cta-band__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.cta-band__title {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  color: #fff;
+  max-width: 460px;
+  line-height: 1.2;
+}
+
+.cta-band__sub {
+  margin-top: 12px;
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cta-band__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn--outline {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+}
+
+.btn--outline:hover {
+  border-color: #fff;
+  transform: translateY(-2px);
+}
