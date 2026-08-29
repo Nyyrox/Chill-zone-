@@ -1710,15 +1710,15 @@
       <h3 class="modal-title">Book AC Service</h3>
       <p class="modal-desc">Enter your details for a 30-minute doorstep dispatch.</p>
 
-      <form onsubmit="submitBooking(event)">
+      <form id="bookingForm" onsubmit="submitBooking(event)">
         <div class="form-group">
           <label class="form-label">Your Name</label>
-          <input type="text" class="form-input" placeholder="e.g. Rahul Sharma" required />
+          <input id="customerName" type="text" class="form-input" placeholder="e.g. Rahul Sharma" required />
         </div>
 
         <div class="form-group">
           <label class="form-label">Phone Number</label>
-          <input type="tel" class="form-input" placeholder="+91 98765 XXXXX" pattern="[0-9]{10}" required />
+          <input id="customerPhone" type="tel" class="form-input" placeholder="+91 98765 XXXXX" pattern="[0-9]{10}" required />
         </div>
 
         <div class="form-group">
@@ -1734,7 +1734,7 @@
 
         <div class="form-group">
           <label class="form-label">Locality / Address in Muzaffarpur</label>
-          <input type="text" class="form-input" placeholder="e.g. Mithanpura, Near Club Road" required />
+          <input id="customerAddress" type="text" class="form-input" placeholder="e.g. Mithanpura, Near Club Road" required />
         </div>
 
         <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">
@@ -1817,11 +1817,33 @@
       if (e.target === modal) closeBookingModal();
     }
 
-    // Booking Submission
+    // Booking Submission — send complete booking details to WhatsApp
     function submitBooking(e) {
       e.preventDefault();
+
+      const name = document.getElementById('customerName').value.trim();
+      const phone = document.getElementById('customerPhone').value.trim();
+      const service = document.getElementById('modalServiceSelect').value;
+      const address = document.getElementById('customerAddress').value.trim();
+
+      const message = [
+        '🔔 *New AC Service Booking*',
+        '',
+        '👤 *Name:* ' + name,
+        '📞 *Phone:* ' + phone,
+        '🛠️ *Service:* ' + service,
+        '📍 *Address:* ' + address,
+        '',
+        'Please confirm the booking and preferred visit time.'
+      ].join('\n');
+
+      // Change this number if the business WhatsApp number changes.
+      const whatsappNumber = '919876543210';
+      const whatsappUrl = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(message);
+
       closeBookingModal();
-      showToast('Booking received! Technician will call you in 5 minutes.');
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      showToast('Opening WhatsApp with your booking details...');
     }
 
     // Toast Trigger
