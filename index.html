@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chill Zone — Premium AC Repair & Services | Muzaffarpur</title>
+  <meta name="description" content="Chill Zone AC Repair Services in Muzaffarpur — Expert AC installation, jet-wash servicing, gas refilling & repair. Fast 30-min doorstep response." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════
+       Design System & Variables (Minimalist Light Monochrome)
+    ═══════════════════════════════════════════════════════════ */
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f9f9fb;
+      --bg-card: #ffffff;
+      --fg: #0f1115;
+      --fg-muted: #646b79;
+      --fg-subtle: #9ba1ad;
+      --border: #e6e8ec;
+      --border-subtle: #f0f1f4;
+      --primary: #000000;
+      --primary-fg: #ffffff;
+      --accent: #111827;
+      --badge-bg: #f3f4f6;
+      --badge-fg: #374151;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-pill: 9999px;
+    }
+
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      color: var(--fg);
+      background-color: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { font-family: inherit; }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 56px;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      background: var(--badge-bg);
+      color: var(--badge-fg);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    .pill-badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--fg);
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      font-size: 16px;
+      color: var(--fg-muted);
+      line-height: 1.65;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: var(--radius-pill);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--primary-fg);
+      border-color: var(--primary);
+    }
+    .btn-primary:hover {
+      background: #27272a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: var(--fg);
+      border-color: var(--border);
+    }
+    .btn-outline:hover {
+      background: #f4f4f5;
+      border-color: #d4d4d8;
+      transform: translateY(-2px);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Navbar (Sticky Glassmorphism)
+    ═══════════════════════════════════════════════════════════ */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--fg);
+    }
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: var(--primary-fg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--fg-muted);
+      position: relative;
+      padding: 4px 0;
+      transition: color 0.2s ease;
+    }
+    .nav-link:hover {
+      color: var(--fg);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 2px;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--fg);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .mobile-menu {
+      position: fixed;
+      top: 76px; left: 0; right: 0;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-lg);
+    }
+    .mobile-menu.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-menu .nav-link {
+      font-size: 16px;
+      padding: 8px 0;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Hero Section
+    ═══════════════════════════════════════════════════════════ */
+    .hero {
+      padding: 160px 0 100px;
+      background: radial-gradient(circle at 80% 20%, #f4f5f8 0%, #ffffff 60%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-title {
+      font-size: clamp(38px, 5.2vw, 62px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      color: var(--fg);
+      margin-bottom: 24px;
+    }
+    .hero-title span.dimmed {
+      color: var(--fg-subtle);
+      font-weight: 700;
+    }
+
+    .hero-subtitle {
+      font-size: 17px;
+      color: var(--fg-muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--fg-muted);
+    }
+    .trust-item svg { color: #000; width: 16px; height: 16px; }
+
+    /* Hero Visual Interactive Card */
+    .hero-card-wrap {
+      position: relative;
+    }
+    .hero-main-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      z-index: 2;
+    }
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .status-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #059669;
+      background: #ecfdf5;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+    }
+    .status-indicator::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+    }
+
+    .quick-calc-box {
+      background: var(--bg-alt);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .quick-calc-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--fg-muted);
+      margin-bottom: 12px;
+    }
+    .service-select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--fg);
+      outline: none;
+      cursor: pointer;
+      margin-bottom: 12px;
+      transition: border 0.2s;
+    }
+    .service-select:focus {
+      border-color: var(--primary);
+    }
+    .price-preview {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding-top: 8px;
+    }
+    .price-label { font-size: 13px; color: var(--fg-muted); }
+    .price-value { font-size: 24px; font-weight: 800; color: var(--fg); }
+
+    .floating-badge {
+      position: absolute;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      box-shadow: var(--shadow-md);
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: float 4s ease-in-out infinite;
+    }
+    .floating-badge.b-left {
+      bottom: -20px;
+      left: -24px;
+    }
+    .floating-badge.b-right {
+      top: -20px;
+      right: -20px;
+      animation-delay: 1.5s;
+    }
+    .floating-badge .badge-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .floating-badge strong { font-size: 16px; font-weight: 800; display: block; }
+    .floating-badge span { font-size: 12px; color: var(--fg-muted); }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Metrics Bar
+    ═══════════════════════════════════════════════════════════ */
+    .metrics-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-alt);
+      padding: 44px 0;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    .metric-card {
+      position: relative;
+    }
+    .metric-card:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -16px; top: 15%;
+      height: 70%;
+      width: 1px;
+      background: var(--border);
+    }
+    .metric-number {
+      font-size: clamp(32px, 3.5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--fg);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .metric-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--fg-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Services Section (Interactive Grid)
+    ═══════════════════════════════════════════════════════════ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .service-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .service-item:hover {
+      border-color: #000000;
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      color: #000;
+      transition: all 0.3s ease;
+    }
+    .service-item:hover .service-icon-box {
+      background: #000;
+      color: #fff;
+    }
+
+    .service-item h3 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .service-item p {
+      font-size: 14px;
+      color: var(--fg-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .service-features {
+      margin-bottom: 24px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
+    }
+    .service-features li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--fg-muted);
+      margin-bottom: 8px;
+    }
+    .service-features li svg {
+      width: 14px;
+      height: 14px;
+      color: #000;
+      flex-shrink: 0;
+    }
+
+    .service-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .service-price {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--fg);
+    }
+    .service-price span {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--fg-muted);
+    }
+    .btn-book-sm {
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: var(--radius-pill);
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      color: var(--fg);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-book-sm:hover {
+      background: #000;
+      color: #fff;
+      border-color: #000;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Why Choose Us
+    ═══════════════════════════════════════════════════════════ */
+    .why-section {
+      background: var(--bg-alt);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .why-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      transition: transform 0.2s ease;
+    }
+    .why-card:hover {
+      transform: translateY(-3px);
+    }
+    .why-number {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--fg-subtle);
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+    .why-card h4 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .why-card p {
+      font-size: 14px;
+      color: var(--fg-muted);
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Reviews & Testimonials Carousel
+    ═══════════════════════════════════════════════════════════ */
+    .reviews-wrapper {
+      position: relative;
+    }
+    .reviews-scroll {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 16px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .reviews-scroll::-webkit-scrollbar { display: none; }
+
+    .review-card {
+      min-width: 360px;
+      max-width: 380px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+    .review-card:hover {
+      border-color: #000;
+      box-shadow: var(--shadow-md);
+    }
+
+    .stars-row {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+    .stars-row svg {
+      width: 16px;
+      height: 16px;
+      fill: #000;
+      color: #000;
+    }
+
+    .review-quote {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #27272a;
+      margin-bottom: 24px;
+      font-style: normal;
+    }
+
+    .reviewer-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .reviewer-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #000;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .reviewer-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--fg);
+    }
+    .reviewer-location {
+      font-size: 12px;
+      color: var(--fg-muted);
+    }
+
+    .reviews-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .ctrl-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--fg);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .ctrl-btn:hover {
+      background: #000;
+      color: #fff;
+      border-color: #000;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       FAQ Section
+    ═══════════════════════════════════════════════════════════ */
+    .faq-grid {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: #fff;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item.active {
+      border-color: #000;
+    }
+    .faq-question {
+      width: 100%;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--fg);
+      text-align: left;
+      cursor: pointer;
+    }
+    .faq-icon {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s ease;
+      color: var(--fg-muted);
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+      color: #000;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+      padding: 0 24px;
+      color: var(--fg-muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding-bottom: 20px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       CTA Section
+    ═══════════════════════════════════════════════════════════ */
+    .cta-wrap {
+      background: #000000;
+      color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 80px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-wrap::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-wrap .section-title {
+      color: #ffffff;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+    .cta-wrap .section-desc {
+      color: #a1a1aa;
+      max-width: 500px;
+      margin: 0 auto 36px;
+    }
+    .cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .cta-wrap .btn-primary {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+    }
+    .cta-wrap .btn-primary:hover {
+      background: #e4e4e7;
+    }
+    .cta-wrap .btn-outline {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.25);
+    }
+    .cta-wrap .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #ffffff;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Footer
+    ═══════════════════════════════════════════════════════════ */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 80px 0 36px;
+      background: #ffffff;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: var(--fg-muted);
+      margin-top: 14px;
+      line-height: 1.65;
+      max-width: 320px;
+    }
+    .footer-col h5 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--fg);
+      margin-bottom: 20px;
+    }
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+    .footer-col ul li a {
+      font-size: 14px;
+      color: var(--fg-muted);
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover {
+      color: var(--fg);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 13px;
+      color: var(--fg-subtle);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Interactive Modal (Service Booking)
+    ═══════════════════════════════════════════════════════════ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal-content {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 480px;
+      padding: 36px;
+      box-shadow: var(--shadow-lg);
+      transform: scale(0.94);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--fg-muted);
+      padding: 4px;
+    }
+    .modal-title {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .modal-desc {
+      font-size: 14px;
+      color: var(--fg-muted);
+      margin-bottom: 24px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--fg);
+      margin-bottom: 6px;
+    }
+    .form-input, .form-select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--fg);
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus, .form-select:focus {
+      border-color: #000;
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: var(--radius-pill);
+      background: #000000;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(255,255,255,0.15);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .floating-whatsapp:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+    .floating-whatsapp svg {
+      width: 20px;
+      height: 20px;
+      color: #10b981;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #000;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: var(--radius-pill);
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 3000;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Responsive Breakpoints
+    ═══════════════════════════════════════════════════════════ */
+    @media (max-width: 992px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero-card-wrap { max-width: 480px; margin: 0 auto; width: 100%; }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .metric-card:nth-child(2)::after { display: none; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu, .nav-actions .btn { display: none; }
+      .hamburger { display: flex; }
+      .section { padding: 72px 0; }
+      .why-grid { grid-template-columns: 1fr; }
+      .hero-buttons { flex-direction: column; width: 100%; }
+      .hero-buttons .btn { width: 100%; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .floating-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ Glassmorphic Navbar ═══ -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="nav-logo">
+        <div class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+            <path d="M12 3v4"/>
+            <path d="M12 7h4"/>
+          </svg>
+        </div>
+        <span>Chill Zone</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#why-us" class="nav-link">Why Choose Us</a></li>
+        <li><a href="#pricing" class="nav-link">Estimator</a></li>
+        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn btn-primary" onclick="openBookingModal()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          Book Service
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" class="nav-link" onclick="toggleMobileMenu()">Services</a>
+    <a href="#why-us" class="nav-link" onclick="toggleMobileMenu()">Why Choose Us</a>
+    <a href="#pricing" class="nav-link" onclick="toggleMobileMenu()">Estimator</a>
+    <a href="#reviews" class="nav-link" onclick="toggleMobileMenu()">Reviews</a>
+    <a href="#faq" class="nav-link" onclick="toggleMobileMenu()">FAQ</a>
+    <button class="btn btn-primary" style="width:100%;margin-top:8px;" onclick="toggleMobileMenu(); openBookingModal();">
+      Book AC Service
+    </button>
+  </div>
+
+  <!-- ═══ Hero Section ═══ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="pill-badge">
+          <span class="dot"></span>
+          Doorstep Service Across Muzaffarpur
+        </div>
+        <h1 class="hero-title">
+          Fast &amp; Reliable <br/>
+          AC Repair Services <br/>
+          <span class="dimmed">at Transparent Rates.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Muzaffarpur's highest-rated AC technicians for Split, Window &amp; Inverter ACs. Jet-pump deep cleaning, gas leak repair, installation and 90-day warranty.
+        </p>
+
+        <div class="hero-buttons">
+          <button class="btn btn-primary" onclick="openBookingModal()">
+            Schedule Visit
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+          <a href="tel:+919876543210" class="btn btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            Call: +91 98765 43210
+          </a>
+        </div>
+
+        <div class="hero-trust">
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            30-Min Arrival
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            90-Day Warranty
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Certified Techs
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual / Live Estimator Card -->
+      <div class="hero-card-wrap" id="pricing">
+        <div class="hero-main-card">
+          <div class="card-top">
+            <div>
+              <h4 style="font-size: 17px; font-weight: 800;">Instant Cost Estimator</h4>
+              <p style="font-size: 13px; color: var(--fg-muted);">Select your AC type &amp; issue</p>
+            </div>
+            <div class="status-indicator">Active Technicians</div>
+          </div>
+
+          <div class="quick-calc-box">
+            <div class="quick-calc-title">Choose Service</div>
+            <select class="service-select" id="estimatorService" onchange="updateEstimate()">
+              <option value="499">Jet-Pump Deep Servicing (₹499)</option>
+              <option value="1999">Full Gas Refilling + Leak Check (₹1,999)</option>
+              <option value="1299">AC Installation &amp; Piping (₹1,299)</option>
+              <option value="699">AC Uninstallation (₹699)</option>
+              <option value="399">Diagnostics &amp; Inspection (₹399)</option>
+            </select>
+
+            <div class="quick-calc-title">AC Units Quantity</div>
+            <select class="service-select" id="estimatorQty" onchange="updateEstimate()">
+              <option value="1">1 Unit</option>
+              <option value="2">2 Units (5% OFF)</option>
+              <option value="3">3+ Units (10% OFF)</option>
+            </select>
+
+            <div class="price-preview">
+              <span class="price-label">Estimated Total</span>
+              <span class="price-value" id="estimatedPrice">₹499</span>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" style="width: 100%;" onclick="bookFromEstimator()">
+            Book This Estimate
+          </button>
+        </div>
+
+        <!-- Floating Badges -->
+        <div class="floating-badge b-left">
+          <div class="badge-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div>
+            <strong>Zero Advance</strong>
+            <span>Pay After Service</span>
+          </div>
+        </div>
+
+        <div class="floating-badge b-right">
+          <div class="badge-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div>
+            <strong>4.9 / 5.0</strong>
+            <span>500+ Local Reviews</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Metrics Bar ═══ -->
+  <div class="metrics-section">
+    <div class="container">
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-number">1,400+</div>
+          <div class="metric-label">ACs Repaired</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">98%</div>
+          <div class="metric-label">Customer Satisfaction</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">30 Min</div>
+          <div class="metric-label">Avg Arrival Time</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">90 Days</div>
+          <div class="metric-label">Service Guarantee</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Services Section ═══ -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="pill-badge">Expert Offerings</div>
+        <h2 class="section-title">Comprehensive AC Solutions</h2>
+        <p class="section-desc">We diagnose and repair all major brands including Daikin, Voltas, LG, Samsung, Lloyd, Panasonic &amp; Blue Star.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-item">
+          <div>
+            <div class="service-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3>Jet-Pump Deep Wash</h3>
+            <p>High-pressure water jet cleaning of cooling coils, blower fans &amp; drain trays to restore 100% cooling efficiency.</p>
+            <ul class="service-features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Eliminates bad odor &amp; dust</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Reduces electricity bills by 20%</li>
+            </ul>
+          </div>
+          <div class="service-footer">
+            <div class="service-price">₹499 <span>/ unit</span></div>
+            <button class="btn-book-sm" onclick="openBookingModal('Jet-Pump Deep Wash')">Book Now</button>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-item">
+          <div>
+            <div class="service-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3>Gas Refill &amp; Leak Repair</h3>
+            <p>100% genuine R32, R410A &amp; R22 refrigerant filling with precision vacuum test and nitrogen leak testing.</p>
+            <ul class="service-features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Comprehensive electronic leak check</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 90-day cooling warranty</li>
+            </ul>
+          </div>
+          <div class="service-footer">
+            <div class="service-price">₹1,999 <span>/ full</span></div>
+            <button class="btn-book-sm" onclick="openBookingModal('Gas Refill & Leak Repair')">Book Now</button>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-item">
+          <div>
+            <div class="service-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"/><line x1="12" y1="12" x2="12" y2="16"/></svg>
+            </div>
+            <h3>Installation &amp; Fitting</h3>
+            <p>Levelled bracket mounting, neat copper piping, core cutting, wire management and vibration pad fitting.</p>
+            <ul class="service-features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Standard vacuum pump testing</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Clean &amp; aesthetic finish</li>
+            </ul>
+          </div>
+          <div class="service-footer">
+            <div class="service-price">₹1,299 <span>/ install</span></div>
+            <button class="btn-book-sm" onclick="openBookingModal('AC Installation')">Book Now</button>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-item">
+          <div>
+            <div class="service-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3>PCB &amp; Electrical Repair</h3>
+            <p>Component-level motherboard repair, capacitor replacement, sensor fixing, and inverter PCB troubleshooting.</p>
+            <ul class="service-features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> OEM authentic components</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> On-spot or same-day repair</li>
+            </ul>
+          </div>
+          <div class="service-footer">
+            <div class="service-price">₹899 <span>/ starting</span></div>
+            <button class="btn-book-sm" onclick="openBookingModal('PCB & Electrical Repair')">Book Now</button>
+          </div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service-item">
+          <div>
+            <div class="service-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>
+            </div>
+            <h3>Annual AMC Plans</h3>
+            <p>Priority servicing, 3 scheduled deep cleanings, unlimited breakdown visits and 20% off spare parts.</p>
+            <ul class="service-features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Hassle-free 365 days coverage</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Priority summer dispatch</li>
+            </ul>
+          </div>
+          <div class="service-footer">
+            <div class="service-price">₹2,499 <span>/ year</span></div>
+            <button class="btn-book-sm" onclick="openBookingModal('Annual AMC Plan')">Book Now</button>
+          </div>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service-item">
+          <div>
+            <div class="service-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <h3>Commercial VRV / Ducting</h3>
+            <p>Complete cooling maintenance for offices, restaurants, clinics and showrooms in Muzaffarpur.</p>
+            <ul class="service-features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Heavy capacity diagnostic tools</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Custom corporate billing</li>
+            </ul>
+          </div>
+          <div class="service-footer">
+            <div class="service-price">Custom <span>/ quote</span></div>
+            <button class="btn-book-sm" onclick="openBookingModal('Commercial AC Solution')">Inquire</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Why Choose Us Section ═══ -->
+  <section class="section why-section" id="why-us">
+    <div class="container">
+      <div class="section-header">
+        <div class="pill-badge">Standard of Excellence</div>
+        <h2 class="section-title">Why Muzaffarpur Trusts Chill Zone</h2>
+        <p class="section-desc">Transparent pricing, disciplined service personnel, and guaranteed cooling performance.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-number">01</div>
+          <h4>30-Minute Fast Response</h4>
+          <p>Local teams strategically stationed across Saraiyaganj, Mithanpura, Aghoria Bazar &amp; Juran Chapra for rapid dispatch.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-number">02</div>
+          <h4>Zero Hidden Charges</h4>
+          <p>Complete inspection with clear quote before starting any work. No sudden surprises or upselling.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-number">03</div>
+          <h4>100% Genuine Spare Parts</h4>
+          <p>Authentic copper pipes, original brand sensors, and high-efficiency refrigerants straight from verified distributors.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-number">04</div>
+          <h4>90-Day Post-Service Warranty</h4>
+          <p>If the same issue reoccurs within 90 days of our repair, our technician inspects and resolves it completely free.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-number">05</div>
+          <h4>Background Verified Techs</h4>
+          <p>Trained, courteous technicians with proper safety kits, ID cards, and post-service cleanup etiquette.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-number">06</div>
+          <h4>Flexible Digital Payments</h4>
+          <p>Pay comfortably after your cooling is tested via UPI, Google Pay, PhonePe, Cards or Cash.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Testimonials / Reviews ═══ -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <div class="pill-badge">Verified Customer Reviews</div>
+        <h2 class="section-title">Loved by 500+ Homes &amp; Offices</h2>
+        <p class="section-desc">Read real reviews from homeowners and businesses across Muzaffarpur.</p>
+      </div>
+
+      <div class="reviews-wrapper">
+        <div class="reviews-scroll" id="reviewsTrack">
+          <!-- Review 1 -->
+          <div class="review-card">
+            <div>
+              <div class="stars-row">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="review-quote">
+                "My 1.5 ton Daikin AC stopped cooling in the peak of June. Chill Zone arrived in 25 minutes, found a capacitor problem, and fixed it immediately. Transparent billing!"
+              </p>
+            </div>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">RK</div>
+              <div>
+                <div class="reviewer-name">Rajesh Kumar</div>
+                <div class="reviewer-location">Mithanpura, Muzaffarpur</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="review-card">
+            <div>
+              <div class="stars-row">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="review-quote">
+                "Jet wash servicing made my 4-year old Voltas split AC blow ice-cold air again like day one. The technicians used protective covers so my walls stayed clean."
+              </p>
+            </div>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">PS</div>
+              <div>
+                <div class="reviewer-name">Priya Sharma</div>
+                <div class="reviewer-location">Saraiyaganj, Muzaffarpur</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="review-card">
+            <div>
+              <div class="stars-row">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="review-quote">
+                "We maintain 8 split ACs in our diagnostic clinic with Chill Zone's AMC. Flawless support, punctual routine visits, and great savings."
+              </p>
+            </div>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">AV</div>
+              <div>
+                <div class="reviewer-name">Dr. Amit Verma</div>
+                <div class="reviewer-location">Juran Chapra, Muzaffarpur</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 4 -->
+          <div class="review-card">
+            <div>
+              <div class="stars-row">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="review-quote">
+                "Got my new Panasonic inverter AC installed. Super clean bracket alignment and vacuum pump testing before starting. Very impressed!"
+              </p>
+            </div>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">SM</div>
+              <div>
+                <div class="reviewer-name">Sunita Mishra</div>
+                <div class="reviewer-location">Aghoria Bazar, Muzaffarpur</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reviews-controls">
+          <button class="ctrl-btn" onclick="slideReviews(-1)" aria-label="Previous">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="ctrl-btn" onclick="slideReviews(1)" aria-label="Next">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Frequently Asked Questions ═══ -->
+  <section class="section why-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="pill-badge">Clear Answers</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Everything you need to know about our repair, maintenance, and warranty policies.</p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item active">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How quickly can an AC technician reach my location in Muzaffarpur?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            We have dedicated roving technician teams throughout key zones in Muzaffarpur. Average doorstep arrival time is between 30 to 45 minutes from confirmation.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What is covered under the 90-Day Service Guarantee?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            Any gas refilling or parts replacement carried out by Chill Zone comes with a 90-day warranty. If cooling drops or the repaired part malfunctions within 90 days, we fix it with zero inspection or service charges.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do you test for gas leakage before refilling?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            We never fill gas blindly. We perform a high-pressure nitrogen test, soap bubble inspection, and vacuum test to pinpoint and braze the exact leakage point before charging pure refrigerant.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Do you service all brands and inverter AC models?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            Yes, our technicians are certified to handle all split, window, cassette, multi-split and VRV systems from Daikin, Voltas, LG, Samsung, Lloyd, Panasonic, Hitachi, Carrier, Blue Star, and Godrej.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Call to Action Box ═══ -->
+  <section class="section" style="padding-bottom: 120px;">
+    <div class="container">
+      <div class="cta-wrap">
+        <div class="pill-badge" style="background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.2);">
+          Same-Day Guaranteed
+        </div>
+        <h2 class="section-title">Ready for Ice-Cold Comfort?</h2>
+        <p class="section-desc">Schedule your service visit now or call our 24/7 helpline for quick doorstep assistance.</p>
+        <div class="cta-buttons">
+          <button class="btn btn-primary" onclick="openBookingModal()">
+            Book Doorstep Visit
+          </button>
+          <a href="tel:+919876543210" class="btn btn-outline">
+            Call +91 98765 43210
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Footer ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            <div class="logo-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                <path d="M12 3v4"/>
+                <path d="M12 7h4"/>
+              </svg>
+            </div>
+            <span>Chill Zone</span>
+          </a>
+          <p>
+            Muzaffarpur's premier doorstep AC repair, jet cleaning, gas charging and installation specialist. Reliable service with 90-day peace of mind.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#services">Jet-Pump Servicing</a></li>
+            <li><a href="#services">Gas Leak &amp; Refill</a></li>
+            <li><a href="#services">Split AC Installation</a></li>
+            <li><a href="#services">PCB Board Repair</a></li>
+            <li><a href="#services">Annual AMC Plans</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Service Areas</h5>
+          <ul>
+            <li><a href="#contact">Mithanpura</a></li>
+            <li><a href="#contact">Saraiyaganj</a></li>
+            <li><a href="#contact">Juran Chapra</a></li>
+            <li><a href="#contact">Aghoria Bazar</a></li>
+            <li><a href="#contact">Brahmpura &amp; Gobarsahi</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Direct Contact</h5>
+          <ul>
+            <li><a href="tel:+919876543210"><strong>Call:</strong> +91 98765 43210</a></li>
+            <li><a href="mailto:support@chillzone.in"><strong>Email:</strong> support@chillzone.in</a></li>
+            <li><span style="color: var(--fg-muted); font-size: 14px;"><strong>Timing:</strong> 8:00 AM – 9:00 PM</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Chill Zone AC Services. All rights reserved.</div>
+        <div>Crafted with clean, premium design for Muzaffarpur</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ Booking Modal ═══ -->
+  <div class="modal-overlay" id="bookingModal" onclick="handleModalBackdrop(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeBookingModal()">&times;</button>
+      <h3 class="modal-title">Book AC Service</h3>
+      <p class="modal-desc">Enter your details for a 30-minute doorstep dispatch.</p>
+
+      <form onsubmit="submitBooking(event)">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-input" placeholder="e.g. Rahul Sharma" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" class="form-input" placeholder="+91 98765 XXXXX" pattern="[0-9]{10}" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Select Service</label>
+          <select class="form-select" id="modalServiceSelect">
+            <option value="Jet-Pump Deep Wash">Jet-Pump Deep Wash (₹499)</option>
+            <option value="Gas Refill & Leak Repair">Gas Refill &amp; Leak Check (₹1,999)</option>
+            <option value="AC Installation">AC Installation (₹1,299)</option>
+            <option value="PCB & Electrical Repair">PCB &amp; Electrical Repair (₹899)</option>
+            <option value="General Diagnostics">General Inspection (₹399)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Locality / Address in Muzaffarpur</label>
+          <input type="text" class="form-input" placeholder="e.g. Mithanpura, Near Club Road" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">
+          Confirm Booking
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ═══ Floating WhatsApp / Call Button ═══ -->
+  <a href="https://wa.me/919876543210?text=Hi%20Chill%20Zone,%20I%20need%20AC%20repair%20service%20in%20Muzaffarpur." target="_blank" class="floating-whatsapp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.23.9 2.43 1.03 2.6.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.18-.47-.3z"/>
+    </svg>
+    <span>Chat on WhatsApp</span>
+  </a>
+
+  <!-- ═══ Toast Notification ═══ -->
+  <div class="toast" id="toast">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toastMsg">Booking request received! Our team is contacting you in 5 mins.</span>
+  </div>
+
+  <!-- ═══ Client Interactions ═══ -->
+  <script>
+    // Navbar scroll state
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function toggleMobileMenu() {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+    }
+    hamburger.addEventListener('click', toggleMobileMenu);
+
+    // Dynamic Price Estimator
+    function updateEstimate() {
+      const basePrice = parseInt(document.getElementById('estimatorService').value, 10);
+      const qty = parseInt(document.getElementById('estimatorQty').value, 10);
+      
+      let discount = 1;
+      if (qty === 2) discount = 0.95;
+      if (qty >= 3) discount = 0.90;
+
+      const total = Math.round(basePrice * qty * discount);
+      document.getElementById('estimatedPrice').textContent = '₹' + total.toLocaleString('en-IN');
+    }
+
+    function bookFromEstimator() {
+      const select = document.getElementById('estimatorService');
+      const text = select.options[select.selectedIndex].text.split('(')[0].trim();
+      openBookingModal(text);
+    }
+
+    // Modal controls
+    const modal = document.getElementById('bookingModal');
+    function openBookingModal(serviceName = null) {
+      if (serviceName) {
+        const select = document.getElementById('modalServiceSelect');
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].text.toLowerCase().includes(serviceName.toLowerCase())) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      modal.classList.add('active');
+    }
+
+    function closeBookingModal() {
+      modal.classList.remove('active');
+    }
+
+    function handleModalBackdrop(e) {
+      if (e.target === modal) closeBookingModal();
+    }
+
+    // Booking Submission
+    function submitBooking(e) {
+      e.preventDefault();
+      closeBookingModal();
+      showToast('Booking received! Technician will call you in 5 minutes.');
+    }
+
+    // Toast Trigger
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 4500);
+    }
+
+    // Reviews Scroll
+    function slideReviews(dir) {
+      const track = document.getElementById('reviewsTrack');
+      track.scrollBy({ left: dir * 380, behavior: 'smooth' });
+    }
+
+    // FAQ Accordion
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
