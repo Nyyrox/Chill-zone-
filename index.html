@@ -189,14 +189,20 @@
       color: var(--fg);
     }
     .logo-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: var(--primary);
-      color: var(--primary-fg);
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+    }
+    .logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      mix-blend-mode: multiply;
     }
 
     .nav-menu {
@@ -1124,14 +1130,7 @@
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
       <a href="#" class="nav-logo">
-        <div class="logo-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-            <path d="M12 3v4"/>
-            <path d="M12 7h4"/>
-          </svg>
-        </div>
-        <span>Chill Zone</span>
+        <div class="logo-icon"><img src="/public/chill-zone-logo.webp" alt="Chill Zone Repair Service logo" /></div><span>Chill Zone</span>
       </a>
 
       <ul class="nav-menu">
@@ -1691,14 +1690,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#" class="nav-logo">
-            <div class="logo-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-                <path d="M12 3v4"/>
-                <path d="M12 7h4"/>
-              </svg>
-            </div>
-            <span>Chill Zone</span>
+            <div class="logo-icon"><img src="/public/chill-zone-logo.webp" alt="Chill Zone Repair Service logo" /></div><span>Chill Zone</span>
           </a>
           <p>
             Muzaffarpur's premier doorstep AC repair, jet cleaning, gas charging and installation specialist. Reliable service with 90-day peace of mind.
