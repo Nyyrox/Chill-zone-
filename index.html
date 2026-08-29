@@ -662,6 +662,24 @@
     }
 
     /* ═══════════════════════════════════════════════════════════
+       Work Gallery
+    ═══════════════════════════════════════════════════════════ */
+    .gallery-section { background: var(--bg); }
+    .gallery-grid { display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:220px; gap:16px; }
+    .gallery-item { position:relative; overflow:hidden; border-radius:var(--radius-md); background:var(--bg-alt); border:1px solid var(--border); cursor:pointer; }
+    .gallery-item:nth-child(1), .gallery-item:nth-child(6) { grid-row:span 2; }
+    .gallery-item:nth-child(4), .gallery-item:nth-child(9) { grid-column:span 2; }
+    .gallery-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .45s cubic-bezier(.16,1,.3,1); }
+    .gallery-item:hover img { transform:scale(1.06); }
+    .gallery-caption { position:absolute; inset:auto 0 0; padding:34px 18px 16px; color:#fff; font-size:13px; font-weight:700; background:linear-gradient(transparent,rgba(0,0,0,.72)); opacity:0; transition:opacity .25s ease; }
+    .gallery-item:hover .gallery-caption { opacity:1; }
+    @media (max-width:800px) {
+      .gallery-grid { grid-template-columns:repeat(2,1fr); grid-auto-rows:190px; gap:12px; }
+      .gallery-item:nth-child(1), .gallery-item:nth-child(6) { grid-row:span 1; }
+      .gallery-item:nth-child(4), .gallery-item:nth-child(9) { grid-column:span 1; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
        Reviews & Testimonials Carousel
     ═══════════════════════════════════════════════════════════ */
     .reviews-wrapper {
@@ -1566,6 +1584,29 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
           </button>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Work Gallery ═══ -->
+  <section class="section gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <div class="pill-badge"><span class="dot"></span> Our Recent Work</div>
+        <h2 class="section-title">Real Work. Real Results.</h2>
+        <p class="section-desc">A look at our AC installations, servicing, diagnostics and maintenance work across Muzaffarpur.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item"><img src="/gallery/26135.webp" alt="Chill Zone AC service work" loading="lazy"><figcaption class="gallery-caption">Professional AC Service</figcaption></figure>
+        <figure class="gallery-item"><img src="/gallery/26138.webp" alt="AC installation work" loading="lazy"><figcaption class="gallery-caption">AC Installation</figcaption></figure>
+        <figure class="gallery-item"><img src="/gallery/26140.webp" alt="AC diagnostic work" loading="lazy"><figcaption class="gallery-caption">AC Diagnostics</figcaption></figure>
+        <figure class="gallery-item"><img src="/gallery/26146.webp" alt="AC maintenance" loading="lazy"><figcaption class="gallery-caption">Expert Maintenance</figcaption></figure>
+        <figure class="gallery-item"><img src="/gallery/26148.webp" alt="Outdoor unit service" loading="lazy"><figcaption class="gallery-caption">Outdoor Unit Service</figcaption></figure>
+        <figure class="gallery-item"><img src="/gallery/26149.webp" alt="AC technician at work" loading="lazy"><figcaption class="gallery-caption">On-Site Technician</figcaption></figure>
+        <figure class="gallery-item"><img src="/gallery/26150.webp" alt="AC servicing equipment" loading="lazy"><figcaption class="gallery-caption">Professional Equipment</figcaption></figure>
+        <figure class="gallery-item"><img src="/gallery/26152.webp" alt="AC repair work" loading="lazy"><figcaption class="gallery-caption">AC Repair Work</figcaption></figure>
+        <figure class="gallery-item"><img src="/gallery/26154.webp" alt="AC indoor unit cleaning" loading="lazy"><figcaption class="gallery-caption">Deep Cleaning</figcaption></figure>
+        <figure class="gallery-item"><img src="/gallery/26157.webp" alt="Chill Zone AC services" loading="lazy"><figcaption class="gallery-caption">Chill Zone Services</figcaption></figure>
       </div>
     </div>
   </section>
